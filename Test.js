@@ -21,7 +21,7 @@
             //     // roll:2 } 
       //  console.log(student2) 
       //  console.log(typeof (student2) )
-      //  console.log(student2.studentname)
+      //  console.log(student2.studentname)/
         // console.log(student2["roll"]) 
           // Cannot be a reserved Keyword 
           // should be meaningful
@@ -121,40 +121,151 @@
 //   button.innerText = "Pops!"
 // })
 
-const button = document.getElementById("btn");
-const hText = document.getElementById("introText")
-console.dir(hText)
+// const button = document.getElementById("btn");
+// const hText = document.getElementById("introText")
+// console.dir(hText)
 
-console.log(navigator);
-const theme = {
-  mode: "brown",
-};
+// console.log(navigator);
+// const theme = {
+//   mode: "brown",
+// };
 
-button.addEventListener("click", () => {
-  if (theme.mode === "brown") {
-    theme.mode = "light";
-  } else if (theme.mode === "light") {
-    theme.mode = "dark";
-  }else {theme.mode="brown"}
+// button.addEventListener("click", () => {
+//   if (theme.mode === "brown") {
+//     theme.mode = "light";
+//   } else if (theme.mode === "light") {
+//     theme.mode = "dark";
+//   }else {theme.mode="brown"}
 
-  console.log(theme);
-  if (theme.mode === "brown") {
-    document.body.style.backgroundColor = "gray";
-    document.body.style.color = "white";
+//   console.log(theme);
+//   if (theme.mode === "brown") {
+//     document.body.style.backgroundColor = "gray";
+//     document.body.style.color = "white";
   
-  } else if (theme.mode === "light") {
-    document.body.style.backgroundColor = "cyan";
-    document.body.style.color = "black";
-  }else   {
-    document.body.style.backgroundColor = "rebeccapurple";
-    document.body.style.color = "white";
-  }
-});
-const Controller = document.getElementById("what");
-const HText = document.getElementById("introText")
-console.dir(HText)
-const mover ={ 
-  scroll : oi 
-};for( let i = 0;i<=array.length;i++ );
- if (array[i]=searchElement);
+//   } else if (theme.mode === "light") {
+//     document.body.style.backgroundColor = "cyan";
+//     document.body.style.color = "black";
+//   }else   {
+//     document.body.style.backgroundColor = "rebeccapurple";
+//     document.body.style.color = "white";
+//   }
+// });
+// const Controller = document.getElementById("what");
+// const HText = document.getElementById("introText")
+// console.dir(HText)
+// const mover ={ 
+//   scroll : oi 
+// };for( let i = 0;i<=array.length;i++ );
+//  if (array[i]=searchElement);
  
+// function stopwatch (){
+//   let [starttime,stoptime,running,duration ]=0;
+//   this.start =function(){
+//     if ( running ) throw new error("Stopwatch is running");
+//  running =true;
+//  starttime=new Date();
+//   };
+//   This . stop = function () {
+//     if (!running)throw new error("Stopwatch isn`t running");
+// running=false;
+// stoptime=new  Date();
+// const seconds =( stoptimep.getTime()-starttime.getTime())/1000;
+// duration+=seconds;
+//   };
+//   this . reset = function () {
+//     starttime=null;
+//     stoptime=null;
+// running=false;
+// duration=0;}
+// Object.defineProperty(this,'duration',{
+//   get : function () {return duration;}
+// });}
+// Stopwatch constructor function
+function Stopwatch() {
+  let startTime = null;
+  let endTime = null;
+  let running = false;
+
+  // Start the stopwatch
+  this.start = function () {
+    if (running) {
+      console.log("Stopwatch is already running.");
+      return;
+    }
+    startTime = new Date();
+    running = true;
+    console.log("Stopwatch started.");
+  };
+
+  // End the stopwatch
+  this.end = function () {
+    if (!running) {
+      console.log("Stopwatch is not running.");
+      return;
+    }
+    endTime = new Date();
+    running = false;
+    console.log("Stopwatch stopped.");
+    this.calculateDuration();
+  };
+
+  // Calculate and display the duration
+  this.calculateDuration = function () {
+    if (startTime && endTime) {
+      const duration = (endTime - startTime) / 1000; // Convert to seconds
+      console.log(`Duration: ${duration.toFixed(2)} seconds`);
+    } else {
+      console.log("Start and end times are required to calculate duration.");
+    }
+  };
+}
+
+// Example usage
+const stopwatch = new Stopwatch();
+stopwatch.start(); // Start the stopwatch
+setTimeout(() => {
+  stopwatch.end(); // End the stopwatch after a delay (simulating user input)
+}, 3000); // Change the delay as needed
+  
+// Stopwatch constructor function
+// function Stopwatch() {
+//   let startTime = null;
+//   let endTime = null;
+//   let running = false;
+
+//   // Start the stopwatch
+//   this.start = function () {
+//     if (running) {
+//       console.log("Stopwatch is already running.");
+//     }
+//     startTime = new Date();
+//     running = true;
+//     console.log("Stopwatch started.");
+//   };
+
+//   // End the stopwatch
+// this.end = function () {
+//     if (!running) {
+//       console.log("Stopwatch is not running.");
+//     }
+//     endTime = new Date();
+//     running = false;
+//     console.log("Stopwatch stopped.");
+//     this.calculateDuration();
+//   };
+
+//   // Calculate and display the duration
+// this.calculateDuration = function () {
+//     if (startTime && endTime) {
+//       const duration = (this.end - this.start) / 1000; // Convert to seconds
+//       console.log(`Duration: ${duration.toFixed(2)} seconds`);
+//     } else {
+//       console.log("Start and end times are required to calculate duration.");
+//     }
+//   };
+// }
+
+// // Example usage
+// const stopwatch = new Stopwatch();
+// // stopwatch.start(); // Startthe stopwatch
+// // stopwatch.end();

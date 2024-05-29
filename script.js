@@ -137,18 +137,274 @@
 // console.log({ numbers });
 // console.log({ newArr });
 
-const persons = [
-  { firstname: "Malcom", lastname: "Reynolds" },
-  { firstname: "Kaylee", lastname: "Frye" },
-  { firstname: "Jayne", lastname: "Cobb" },
-];
+// const persons = [
+//   { firstname: "Malcom", lastname: "Reynolds" },
+//   { firstname: "Kaylee", lastname: "Frye" },
+//   { firstname: "Jayne", lastname: "Cobb" },
+// ];
 
-const fullName = persons.map((person, index) => {
-  return [person.firstname, person.lastname].join(" ");
-});
+// const fullName = persons.map((person, index) => {
+//   return [person.firstname, person.lastname].join(" ");
+// });
 
-console.log(fullName);
+// console.log(fullName);
 // persons.map(getFullName);
 // function getFullName(item) {
 //   return [item.firstname,item.lastname].join(" ");
 // }
+
+
+// function createCircle (radius ){
+//    return  {
+// radius ,
+//  draw:function () {
+//     console.log("draw");
+//   }
+//  }
+// }
+
+// const circle=createCircle (1)
+
+// 09. Enumerating Properties
+
+// to enumerate
+// for in loop
+
+// to get all the keys
+// Object.keys()
+
+// const myObj = {
+//   name: "amar obj",
+//   age: 29
+// }
+
+// console.log(Object.keys(myObj))
+
+// to check
+// in obj
+
+// if('name' in myObj) console.log("yaaay")
+
+// 10. Abstraction
+// Hide the details, show only the essentials
+
+// function Book(pageNumber, name) {
+//    console.log(this);
+//    this.page = pageNumber;
+//    this.name = name;
+//    let defaultPageSize = "A4";
+//    let computePageCost = function () {
+//      // ....
+//      console.log(defaultPageSize);
+//    };
+//    this.buy = function (numOfCopy) {
+//      computePageCost();
+//    };
+//    this.read = function () {
+//      console.log(`Reading ${this.name}. It has ${this.page} pages`);
+//    };
+//    console.log(this);
+//  }
+ 
+ 
+//  // const book = new Book(10, "YDKJSY");
+ 
+//  // console.log(book);
+//  // book.buy()
+ 
+//  // 11. Private properties and methods
+//  // Using local variable
+ 
+//  // 12. Getters and Setters
+ 
+//  function Book(pageNumber, name) {
+//    this.page = pageNumber;
+//    this.name = name;
+//    let defaultPageSize = "A4";
+//    let computePageCost = function () {
+//      // ....
+//      console.log(defaultPageSize);
+//    };
+ 
+//    // this.text = "Fantastic Book"
+ 
+//    Object.defineProperty(this,"text",{
+//      value: "Nice Book!"
+//    })
+ 
+//    let imageURL = "www.faltu.com"
+ 
+//    Object.defineProperty(this, "image", {
+//      get : function (){
+//        return imageURL
+//      }
+//    })
+//  }
+ 
+//  const book = new Book(10, "YDKJSY")
+//  const book2 = new Book(15, "Faltu Book")
+ 
+ 
+ 
+//  console.log(book)
+//  console.log(book2)
+ 
+ 
+ 
+ 
+//  // Define object
+//  const obj = {counter : 0};
+ 
+//  // Define setters and getters
+//  Object.defineProperty(obj, "reset", {
+//    get : function () {this.counter = 0;}
+//  });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+//  Object.defineProperty(obj, "increment", {
+//    get : function () {this.counter++;}
+//  });
+//  Object.defineProperty(obj, "decrement", {
+//    get : function () {this.counter--;}
+//  });
+ 
+ 
+ 
+//  Object.defineProperty(obj, "add", {
+//    set : function (value) {
+//      console.log(value)
+//      this.counter += value;}
+//  });
+ 
+ 
+ 
+ 
+//  Object.defineProperty(obj, "subtract", {
+//    set : function (value) {this.counter -= value;}
+//  });
+ 
+//  // Play with the counter:
+//  obj.reset;
+//  obj.add = 5;
+//  obj.subtract = 1;
+//  obj.increment;
+//  obj.decrement;
+ 
+// //  ```
+// 01. Creating your own Prototypical inheritance
+
+// function Shape() {}
+
+// Shape.prototype.duplicate = function () {
+//   console.log("duplicate");
+// };
+
+// function Circle(radius) {
+//   this.radius = radius;
+// }
+
+// Circle.prototype.duplicate = function () {
+//   console.log("duplicating");
+// };
+// function Square() {
+//   // ...
+// }
+
+// Square.prototype.duplicate = function () {
+//   console.log("duplicating");
+// };
+
+// Circle.prototype = Object.create(Object.prototype); // objectBase
+
+// Circle.prototype = Object.create(Shape.prototype);
+// Circle.prototype.constructor = Circle;
+// Square.prototype = Object.create(Shape.prototype);
+// Square.prototype.constructor = Square;
+// Circle.prototype.draw = function () {
+//   console.log("draw");
+// };
+// const c = new Circle(1);
+// const sq = new Square();
+// console.log(Circle.prototype);
+// console.log(c.constructor)
+// // Circle.prototype.duplicate = function () {
+// //   console.log("duplicate");
+// // };
+
+// Square.prototype.duplicate = function () {};
+
+// const c = new Circle(1);
+// const s = new Shape();
+// --------------------------------
+// 02. Resetting the Constructor
+
+// Circle.prototype.constructor = Circle;
+// new Circle.prototype.constructor() => new Circle()
+// Circle.prototype = Object.create(Shape.prototype);
+// Circle.prototype.constructor = Circle;
+// console.log(Circle.prototype);
+// const c = new Circle(1);
+// console.log(c.constructor)
+
+// 03. Calling the Super Constructor
+// function Shape(color) {
+//   this.color = color; // look
+// }
+
+// Shape.prototype.duplicate = function () {
+//   console.log("duplicate");
+// };
+
+// function Circle(radius, color) {
+//   Shape.call(this, color);
+//   this.radius = radius;
+// }
+
+// Circle.prototype = Object.create(Shape.prototype);
+// Circle.prototype.constructor = Circle;
+
+// function Square(color) {
+//   Shape.call(this, color);
+// }
+
+// const c = new Circle(1, "blue"); // {}
+// const s = new Square("Red");
+
+// 04. Intermediate Function Inheritance
+// extend
+
+// function Shape(color) {
+//   this.color = color; // look
+// }
+
+// Shape.prototype.duplicate = function () {
+//   console.log("duplicate");
+// };
+
+// function extend(Child, Parent) {
+//   Child.prototype = Object.create(Parent.prototype);
+//   Child.prototype.constructor = Child;
+// }
+// function Circle(radius, color) {
+//   Shape.call(this, color);
+//   this.radius = radius;
+// }
+
+// extend(Circle, Shape);
+
+// Circle.prototype.draw = function () {
+//   console.log("draw");
+// };
+
+// function Square(size) {
+//   this.size = size;
+// }
+
+// extend(Square, Shape);
+
+// ```

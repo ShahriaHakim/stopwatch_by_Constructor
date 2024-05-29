@@ -240,16 +240,16 @@
 
 // 03. Arguments
 
-function sum() {
-  console.log(arguments);
-  let total = 0;
-  for (const iterator of arguments) {
-    total += iterator;
-  }
-  return total;
-}
+// function sum() {
+//   console.log(arguments);
+//   let total = 0;
+//   for (const iterator of arguments) {
+//     total += iterator;
+//   }
+//   return total;
+// }
 
-// console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+// // console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
 
 // let arr = [2, 3, 4, 5];
 // // console.log(arr)
@@ -411,23 +411,23 @@ function sum() {
 // Changing this: Call, apply
 // Solution as all the methods dont have the thisArg
 
-function test() {}
+// function test() {}
 
-const person = {
-  fullName: function (age, birthday) {
-    return this.firstName + " " + this.lastName + " " + age + ", " + birthday;
-  },
-};
+// const person = {
+//   fullName: function (age, birthday) {
+//     return this.firstName + " " + this.lastName + " " + age + ", " + birthday;
+//   },
+// };
 
-const person1 = {
-  firstName: "John",
-  lastName: "Doe",
-};
-const person2 = {
-  firstName: "Mary",
-  lastName: "Doe",
-};
+// const person1 = {
+//   firstName: "John",
+//   lastName: "Doe",
+// };
+// const person2 = {
+//   firstName: "Mary",
+//   lastName: "Doe",
+// };
 
-console.log(person.fullName.call(person2, 30, "1 Dec"));
+// console.log(person.fullName.call(person2, 30, "1 Dec"));
 
-console.log(person.fullName.apply(person1, [30, "2 Dec"]));
+// console.log(person.fullName.apply(person1, [30, "2 Dec"]));
